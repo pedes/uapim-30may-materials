@@ -1,0 +1,17 @@
+#%Validation Profile 1.0
+
+profile: Basic Custom Ruleset
+description: Some additionals details about this ruleset
+
+#violations are critical errors that must be fixed
+violation:
+  - version-format
+
+validations:
+
+  version-format:
+    message: The version field must follow the semantic versioning convention, e.g. v1.0.0, please update your API accordingly version vMAJOR.MINOR.PATCH
+    targetClass: apiContract.WebAPI
+    propertyConstraints:
+      core.version:
+        pattern: ^v[0-9]+\.[0-9]+\.[0-9]+$
