@@ -1,0 +1,21 @@
+apiVersion: gateway.mulesoft.com/v1alpha1
+kind: Configuration
+metadata:
+  name: splunk-config
+spec:
+  logging:
+    outputs:
+    - name: splunk
+      type: splunk
+      parameters:
+        host: prd-p-svacu.splunkcloud.com
+        port: "8088"
+        splunk_token: bfb29683-66ad-40dc-a6a6-4f0a21c715e4
+        event_index: main
+        tls: "on"
+        tls.verify: "off"
+    runtimeLogs:
+      logLevel: info
+      outputs: [splunk]
+    accessLogs:
+      outputs: [splunk]
